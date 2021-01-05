@@ -1,7 +1,5 @@
 # RTBS(Re:Apt Twitter Bot System)
 
-Python 3.8 or later is required. / Python3.8 以降が必要です。
-
 The Japanese documentation is under the English version. / 日本語版は下にあります。
 
 ## English Version

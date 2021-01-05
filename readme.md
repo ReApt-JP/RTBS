@@ -1,6 +1,6 @@
 # RTBS(Re:Apt Twitter Bot System)
 
-The Japanese documentation is under the English version. / 日本語版は下にあります。
+There is The Japanese documentation under the English version. / 日本語版は下にあります。
 
 ## English Version
 

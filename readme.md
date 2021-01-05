@@ -97,9 +97,7 @@ word_tuple = (
 skip_authors = {"user1", "user2"}
 ```
 
-```
 ### 使い方
 
 1. venv を有効化する: `source ./rtbs/bin/activate`
 1. 実行する: `python3 rtbs.py`
-```

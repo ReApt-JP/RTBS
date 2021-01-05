@@ -51,9 +51,8 @@ query = urllib.parse.quote(" OR ".join(word_tuple))
 
 
 def main(start, loop):
-    print(query)
     start = int(start)
-    print(start)
+    print(f"ID {start} 以降のツイートを検索します")
     params = {
         "q": query,
         "count": 15,
@@ -66,17 +65,6 @@ def main(start, loop):
     r_json = response.json()
 
     if response.status_code == 200:
-        """
-        with open("response.json", mode="w", encoding="utf-8") as f:
-            json.dump(
-                r_json,
-                f,
-                ensure_ascii=False,
-                indent=4,
-                sort_keys=True,
-                separators=(",", ": "),
-            )
-        """
         if len(r_json["statuses"]) > 0:
             for i in r_json["statuses"]:
                 if i["user"]["screen_name"] not in skip_author:
@@ -108,7 +96,7 @@ def main(start, loop):
                         DISCORD_HOOK_URL, discord_content, headers=headers
                     )
                     time.sleep(0.5)
-                    print(return_msg)
+                    print(f"Discordに送信しました。ステータスは: {return_msg} です。")
                 else:
                     print("指定外のツイートです")
             start = r_json["statuses"][0]["id_str"]

@@ -2,3 +2,4 @@ rtbs
 .vscode
 response.json
 tmp.txt
+.env

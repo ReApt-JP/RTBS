@@ -1,18 +1,40 @@
-import json
-import asyncio
-from requests_oauthlib import OAuth1Session
+from typing import Final
+
+# Load libraries for environ
+from os import getenv
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+# Load libraries for API request
 import requests
+from requests_oauthlib import OAuth1Session
+
+# Load libraries for parsing JSON
+import json
 import urllib.parse
 from datetime import datetime
 import time
 
-ENVIRON = getenv("REAPT_EGOSEARCH_ENV").split(";")
-discord_hook = ENVIRON[0]
+# Load libraries for loop
+import asyncio
+
+load_dotenv(verbose=True)
+
+dotenv_path = join(dirname(__file__), ".env")
+load_dotenv(dotenv_path)
+
+
+DISCORD_HOOK_URL: Final[str] = getenv("DISCORD_HOOK_URL")
+TW_KEY: Final[str] = getenv("TWITTER_API_KEY")
+TW_SECRET: Final[str] = getenv("TWITTER_API_SECRET")
+TW_TOKEN: Final[str] = getenv("TWITTER_ACCESS_TOKEN")
+TW_TOKEN_SECRET: Final[str] = getenv("TWITTER_ACCESS_SECRET")
+
 twitter = OAuth1Session(
-    ENVIRON[1],
-    client_secret=ENVIRON[2],
-    resource_owner_key=ENVIRON[3],
-    resource_owner_secret=ENVIRON[4],
+    TW_KEY,
+    client_secret=TW_SECRET,
+    resource_owner_key=TW_TOKEN,
+    resource_owner_secret=TW_TOKEN_SECRET,
 )
 
 headers = {"Content-Type": "application/json"}
@@ -83,7 +105,7 @@ def main(start, loop):
                     }
                     discord_content = json.dumps(content)
                     return_msg = requests.post(
-                        discord_hook, discord_content, headers=headers
+                        DISCORD_HOOK_URL, discord_content, headers=headers
                     )
                     time.sleep(0.5)
                     print(return_msg)

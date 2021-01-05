@@ -12,3 +12,4 @@ discord==1.0.1
 discord.py==1.5.1
 multidict==4.7.6
 yarl==1.5.1
+python-dotenv==0.15.0

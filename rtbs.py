@@ -5,7 +5,6 @@ import requests
 import urllib.parse
 from datetime import datetime
 import time
-from os import getenv
 
 ENVIRON = getenv("REAPT_EGOSEARCH_ENV").split(";")
 discord_hook = ENVIRON[0]
@@ -96,7 +95,7 @@ def main(start, loop):
         else:
             print("検索しましたが、新しいツイートはありませんでした")
     else:
-        print("An error is occupited:{}".format(response.status_code))
+        print("An error was happend:{}".format(response.status_code))
     loop.call_later(15, main, start, loop)
 
 

@@ -28,7 +28,7 @@ DISCORD_HOOK_URL: Final[str] = getenv("DISCORD_HOOK_URL")
 TW_KEY: Final[str] = getenv("TWITTER_API_KEY")
 TW_SECRET: Final[str] = getenv("TWITTER_API_SECRET")
 TW_TOKEN: Final[str] = getenv("TWITTER_ACCESS_TOKEN")
-TW_TOKEN_SECRET: Final[str] = getenv("TWITTER_ACCESS_SECRET")
+TW_TOKEN_SECRET: Final[str] = getenv("TWITTER_ACCESS_TOKEN_SECRET")
 
 twitter = OAuth1Session(
     TW_KEY,
